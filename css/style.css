@@ -1,0 +1,14 @@
+body {position:relative}
+.header1 {font-size:x-large;}
+.wrapper {position:relative; height:28.5em; margin-top:1em; margin-left:1em;}
+.align-wrapper {margin-left:1em;}
+.part1 {position:absolute; left:0%; top:0px; width:25%}
+.part2 {position:absolute; left:25%; top:0px; width:25%}
+.part3 {position:absolute; left:50%; top:0px; width:25%}
+.part4 {position:absolute; left:75%; top:0px; width:25%}
+.checkbox-row tr {height:1.5em; }
+.num-row tr {height:1.5em; }
+.num-row { float: left }
+.brfloat { clear: both }
+.checkbox-row { float: left; padding-top: 0.9em;} 
+.space-between-rows {float:left; margin-left:20px;}  
