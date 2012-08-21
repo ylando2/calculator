@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.1 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<html>
+  <head>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/calc.js"></script>  
+    <script type="text/javascript">
+
+jQuery(document).ready(function($) {
+    init();
+    if ($.browser.webkit) {
+    $(".wrapper").height($(".wrapper").height()+32);
+    $(".num-row tr").height($(".num-row td").height());
+    $(".checkbox-row td").height($(".num-row td").height());
+    $(".checkbox-row tr").height($(".num-row td").height());
+    $(".checkbox-row").css("padding-top",$(".num-row td").height()/2+3);    
+    }  
+    });
+
+  </script> 
+
+  <link rel="stylesheet" href="css/reset.css" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <title> Calculator without a name</title>
+ 
+
+</head>
+
+<body>
+  <div class="header1"> &nbsp; &nbsp; <u>Calculator without a name</u></div>
+  <div class="wrapper">
+    <div class="part1">
+      <form name="calc">
+        <table>
+          <tr><td><input type="checkbox" name="selectAll" value="" onClick="selectf(this)" /></td><td>Select/Unselect all</td></tr> 
+        </table>
+        <div class="checkbox-row">
+          <table>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>  
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+          </table>
+        </div>
+        <div class="num-row">
+          <table>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+          </table>
+        </div>
+
+
+        <div class="brfloat"> </div>
+        <table>
+          <tr><td> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+              <button type="button" onClick="undof(this)">Undo</button></td>
+            <td><button type="button" onClick="redof(this)">Redo</button></td></tr>
+        </table>
+        <table>
+          <tr>
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td><button type="button" onClick="applyOp(this,mul)" title="Multiply">
+                <img src="images/multiply.png" alt="*" /></button></td>
+            <td><button type="button" onClick="applyOp(this,div)" title="Divide">
+                <img src="images/divide.png" alt="/" /></button></td>
+            <td><button type="button" onClick="upf(this)" title="Move up">
+                <img src="images/up_arrow.png" alt="Up" /></button></td>
+            <td><button type="button" onClick="swapf(this)" title="Swap">
+                <img src="images/swap_arrow.png" alt="Swap"/></button></td></tr>
+          <tr>
+            <td></td>   
+            <td><button type="button" onClick="applyOp(this,plus)" title="Add">
+                <img src="images/plus.png" alt="+" /></button></td>
+            <td><button type="button" onClick="applyOp(this,minus)" title="Subtract">
+                <img src="images/minus.png" alt="-" /></button></td>          
+            <td><button type="button" onClick="downf(this)" title="Move down">
+                <img src="images/down_arrow.png" alt="Down" /></button></td>
+            <td><button type="button" onClick="clearf(this)" title="Clear">CLR</button></td></tr>
+        </table>
+      </form>
+    </div>
+
+    <div class="part2">
+      <form name="calc">
+        <table>
+          <tr><td><input type="checkbox" name="selectAll" value="" onClick="selectf(this)" /></td><td>Select/Unselect all</td></tr> 
+        </table>
+        <div class="checkbox-row">
+          <table>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>  
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+          </table>
+        </div>
+        <div class="num-row">
+          <table>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+          </table>
+        </div>
+        <div class="brfloat"> </div>
+     <table>
+          <tr><td> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+              <button type="button" onClick="undof(this)">Undo</button></td>
+            <td><button type="button" onClick="redof(this)">Redo</button></td></tr>
+        </table>
+        <table>
+          <tr>
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td><button type="button" onClick="applyOp(this,mul)" title="Multiply">
+                <img src="images/multiply.png" alt="*" /></button></td>
+            <td><button type="button" onClick="applyOp(this,div)" title="Divide">
+                <img src="images/divide.png" alt="/" /></button></td>
+            <td><button type="button" onClick="upf(this)" title="Move up">
+                <img src="images/up_arrow.png" alt="Up" /></button></td>
+            <td><button type="button" onClick="swapf(this)" title="Swap">
+                <img src="images/swap_arrow.png" alt="Swap"/></button></td></tr>
+          <tr>
+            <td></td>   
+            <td><button type="button" onClick="applyOp(this,plus)" title="Add">
+                <img src="images/plus.png" alt="+" /></button></td>
+            <td><button type="button" onClick="applyOp(this,minus)" title="Subtract">
+                <img src="images/minus.png" alt="-" /></button></td>          
+            <td><button type="button" onClick="downf(this)" title="Move down">
+                <img src="images/down_arrow.png" alt="Down" /></button></td>
+            <td><button type="button" onClick="clearf(this)" title="Clear">CLR</button></td></tr>
+        </table>
+      </form>
+    </div>
+    <div class="part3">
+      <form name="calc">
+        <table>
+          <tr><td><input type="checkbox" name="selectAll" value="" onClick="selectf(this)" /></td><td>Select/Unselect all</td></tr> 
+        </table>
+        <div class="checkbox-row">
+          <table>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>  
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+          </table>
+        </div>
+        <div class="num-row">
+          <table>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+          </table>
+        </div>
+
+        <div class="brfloat"> </div>
+     <table>
+          <tr><td> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+              <button type="button" onClick="undof(this)">Undo</button></td>
+            <td><button type="button" onClick="redof(this)">Redo</button></td></tr>
+        </table>
+        <table>
+          <tr>
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td><button type="button" onClick="applyOp(this,mul)" title="Multiply">
+                <img src="images/multiply.png" alt="*" /></button></td>
+            <td><button type="button" onClick="applyOp(this,div)" title="Divide">
+                <img src="images/divide.png" alt="/" /></button></td>
+            <td><button type="button" onClick="upf(this)" title="Move up">
+                <img src="images/up_arrow.png" alt="Up" /></button></td>
+            <td><button type="button" onClick="swapf(this)" title="Swap">
+                <img src="images/swap_arrow.png" alt="Swap"/></button></td></tr>
+          <tr>
+            <td></td>   
+            <td><button type="button" onClick="applyOp(this,plus)" title="Add">
+                <img src="images/plus.png" alt="+" /></button></td>
+            <td><button type="button" onClick="applyOp(this,minus)" title="Subtract">
+                <img src="images/minus.png" alt="-" /></button></td>          
+            <td><button type="button" onClick="downf(this)" title="Move down">
+                <img src="images/down_arrow.png" alt="Down" /></button></td>
+            <td><button type="button" onClick="clearf(this)" title="Clear">CLR</button></td></tr>
+        </table>
+      </form>
+    </div>
+
+    <div class="part4">
+      <form name="calc">
+        <table>
+          <tr><td><input type="checkbox" name="selectAll" value="" onClick="selectf(this)" /></td><td>Select/Unselect all</td></tr> 
+        </table>
+        <div class="checkbox-row">
+          <table>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>  
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+            <tr ><td> <input type="checkbox" name="doAction" value="" /></td></tr>
+          </table>
+        </div>
+        <div class="num-row">
+          <table>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+            <tr ><td> <input type="text" name="num" onFocus="beforeChange(this)" onChange="afterChange(this)" 
+                autocomplete="off" /></td>
+              <td> <button name="percentageButton" type="button" onClick="applyUniOp(this,percent)" tabindex="-1">%</button></td></tr>
+          </table>
+        </div>
+
+        <div class="brfloat"> </div>
+     <table>
+          <tr><td> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+              <button type="button" onClick="undof(this)">Undo</button></td>
+            <td><button type="button" onClick="redof(this)">Redo</button></td></tr>
+        </table>
+        <table>
+          <tr>
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td><button type="button" onClick="applyOp(this,mul)" title="Multiply">
+                <img src="images/multiply.png" alt="*" /></button></td>
+            <td><button type="button" onClick="applyOp(this,div)" title="Divide">
+                <img src="images/divide.png" alt="/" /></button></td>
+            <td><button type="button" onClick="upf(this)" title="Move up">
+                <img src="images/up_arrow.png" alt="Up" /></button></td>
+            <td><button type="button" onClick="swapf(this)" title="Swap">
+                <img src="images/swap_arrow.png" alt="Swap"/></button></td></tr>
+          <tr>
+            <td></td>   
+            <td><button type="button" onClick="applyOp(this,plus)" title="Add">
+                <img src="images/plus.png" alt="+" /></button></td>
+            <td><button type="button" onClick="applyOp(this,minus)" title="Subtract">
+                <img src="images/minus.png" alt="-" /></button></td>          
+            <td><button type="button" onClick="downf(this)" title="Move down">
+                <img src="images/down_arrow.png" alt="Down" /></button></td>
+            <td><button type="button" onClick="clearf(this)" title="Clear">CLR</button></td></tr>
+        </table>
+      </form>
+    </div>
+
+
+  </div>
+
+  <div class="align-wrapper">
+    <form name="rowActions">
+      from
+      <SELECT name="from">
+      </SELECT>
+      to
+      <SELECT name="to">
+      </SELECT>
+      do:
+      <button type="button" onClick="copyRow()">copy</button>
+      <button type="button" onClick="swapRow()">swap</button>
+    </form>
+  </div>
+  <br/>
+
+  This website is under GPLv3 license.
+</body>
+</html>
