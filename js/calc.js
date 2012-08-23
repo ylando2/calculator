@@ -41,20 +41,63 @@ var applyOp=function(e,fun) {
   var form=e.form;
   var state=getState(form);
   form.selectAll.checked=false;
-  for (var i=0;i<form.doAction.length;i++) {
+  var LastVal;
+  var hasLastVal;
+  var result=[];
+  
+  var firstElement=form.num[0].value;
+  var parseFirstElement=parseFloat(firstElement);
+  if (!isNaN(parseFirstElement)) {
+    hasLastVal=true;
+    lastVal=parseFirstElement;
+  } else {
+    hasLastVal=false;
+    result.push(firstElement);
+  }
+  
+  var i;
+  
+  for (i=0;i<form.doAction.length;i++) {
     var check=form.doAction[i];
+    var x=form.num[i].value;
+    var y=form.num[i+1].value;
+    var z=NaN;
     if (check.checked) {
       check.checked=false;
-      var x=form.num[i];
-      var y=form.num[i+1];
-      var z=fun(parseFloat(x.value),parseFloat(y.value));
-      if (z===0 || z) {
-        y.value=z;
-        x.value="";
-        change=true;
+      if (hasLastVal) {
+        z=fun(lastVal,parseFloat(y));
+      } else {
+        z=fun(parseFloat(x),parseFloat(y));
       }
     }
+    if (!isNaN(z)) {
+      if (!hasLastVal) {
+        hasLastVal=true;
+        result.pop();
+      }
+      lastVal=z;
+      change=true;
+    } else {
+      if (hasLastVal) {
+      hasLastVal=false;
+      result.push(lastVal);
+      } 
+      result.push(y);
+    }
   }
+  if (hasLastVal) {
+    result.push(lastVal);
+  }
+  
+  var diff=form.num.length-result.length;
+  for (i=0;i<diff;i++) {
+    form.num[i].value="";
+  }
+  var j;
+  for (i=0,j=diff;i<result.length;i++,j++) {
+    form.num[j].value=result[i];
+  }
+
   if (change) saveState(formNum,state);
 }
 
@@ -166,7 +209,7 @@ var applyUniOp=function(e,op) {
   var form=e.form;
   var x=form.num[getIndexOnArray(form[e.name],e)];
   var num=parseFloat(x.value);
-  if (num || num===0) {
+  if (!isNaN(num)) {
     var num2=op(num);
     if (num2!==num) {
       saveState(formNum,getState(form));
